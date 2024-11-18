@@ -1,0 +1,58 @@
+{% extends 'begin/base.html' %}
+{% block body %}
+<div class="detail" style="margin-left: 5%;">
+    
+    <h1>Book's Detail</h1>
+
+    <div class="image-side">
+        <img src="/media/{{ object.book_image }}" width="400px" height="400px">
+    </div>
+    <h2>
+        Seller: {{ object.seller }} 
+        {% if average_rating %}
+            <span style="color: orange; font-weight: bold;">(Rated: {{ average_rating|floatformat:1 }} Stars)</span>
+        {% endif %}
+        <br>
+        
+        Book's name: {{ object.book_name }}<br>
+        Edition: {{ object.edition }}<br>
+        Price: {{ object.price }}<br>
+        Location: {{ object.location }}<br>
+        Contact num: {{ object.phone }}<br>
+        {% if object.category %}
+            Category: {{ object.category }} <br>
+        {% endif %}
+    </h2>
+
+    {% if object.seller == user %}
+        <a href="{% url 'main:update' object.id %}" class="btn btn-secondary">Update</a>
+        <a href="{% url 'main:delete' object.id %}" class="btn btn-danger">Delete</a>
+        <a href="{% url 'main:mark_as_sold' object.id %}" class="btn btn-success">Mark as Sold</a>
+    {% endif %}
+    
+    {% if user.is_authenticated %}
+        <a href="{% url 'main:add-to-wishlist' object.id %}" class="btn btn-primary">Add to Wishlist</a>
+    {% else %}
+        <br><p><a href="{% url 'login' %}">Login</a> to add to wishlist.</p>
+    {% endif %}
+</div>
+
+<div style="margin-left: 10%;">
+    <h3 style="text-align: center;">{{ object.seller }}  Reviews</h3>
+    {% if reviews %}
+        <ul style="padding: 0;">
+            {% for review in reviews %}
+            <li style="list-style-type: none; margin-bottom: 15px;">
+                <div style="border: 1px solid #ccc; border-radius: 5px; padding: 15px; background-color: #f9f9f9;">
+                    <strong>Rating:</strong> <span style="color: orange;">{{ review.rating }} Star</span><br>
+                    <strong>Comment:</strong> {{ review.comment }}<br>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No reviews yet.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

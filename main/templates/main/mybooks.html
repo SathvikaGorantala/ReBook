@@ -1,0 +1,35 @@
+{% extends 'begin/base.html' %}
+
+{% load static %}
+{% block body %}
+
+<div class="container">
+    <h1>{{ title }}</h1>
+    <br> <br> <br><br> 
+    {% if desc %}
+    {% for booksdetail in desc %}
+<div class="card-me" style="width: 200px; border:2px solid black;">
+  <img src="/media/{{ booksdetail.book_image }}" width="200" height="150" class="card-img-top" alt="...">
+  <div class="card-body">
+    
+    <h5 class="card-title">{{booksdetail.book_name}}</h5>
+    <p class="card-text">{{booksdetail.location}}</p>
+      <p class="card-text">${{booksdetail.price}}</p>
+    <a href="/main/detail/{{booksdetail.id}}" class="btn btn-primary">More Detail</a>
+  </div>
+</div>
+
+
+
+{% endfor %}
+
+{% else %}
+<br> <br> <br> <br> <br>
+        <p>You have not posted an Item.</p>
+    {% endif %}
+</div>
+
+    
+  </div>
+
+{% endblock %}

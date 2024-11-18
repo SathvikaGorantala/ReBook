@@ -1,0 +1,49 @@
+{% extends 'begin/base.html' %}
+{% block body %}
+<div class="container">
+<div class="detail" style="margin-left: 5%;">
+    <h1>Mark "{{ book.book_name }}" as Sold</h1>
+    <p>Select the user who bought the book:</p>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wishlist in wishlist_users %}
+                <tr>
+                    <td>{{ wishlist.user.username }}</td>
+                    <td>
+                        <form method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <input type="hidden" name="buyer_id" value="{{ wishlist.user.id }}">
+                            <button
+                                type="submit"
+                                class="btn btn-success"
+                                onclick="return confirmSale()"
+                            >
+                                Confirm Sale to {{ wishlist.user.username }}
+                            </button>
+                            <script>
+                                function confirmSale() {
+                                    return confirm("Are you sure you want to confirm the sale to {{ wishlist.user.username }}?");
+                                }
+                            </script>
+
+                        </form>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No users have added this book to their wishlist.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</div>
+{% endblock %}

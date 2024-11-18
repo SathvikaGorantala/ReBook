@@ -1,0 +1,501 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="{% static 'begin/style.css' %}">
+    <title>ReBook Connect</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		  integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+          <link rel="shortcut icon" type="image/png" href="{% static 'images/logo1.png' %}"/>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+	
+    
+    <style>
+		@import url('https://fonts.googleapis.com/css2?family=Aclonica&display=swap');
+
+        body {
+    min-height: 100vh; /* Make the body take up the full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+    background-color: #E7E7E5;
+}
+
+.container {
+    flex-grow: 1; /* Ensure the container grows to fill available space */
+}
+.one{
+font-size:30px;
+text-decoration:none;
+margin:10px 5px 0 5px;
+float:right;
+top:5px;
+color: white;
+
+}
+.one:hover{
+
+	border: none;
+	color: grey;
+	text-decoration: underline;
+}
+
+.basenav{
+background-color:#084787;
+color:white;
+font-weight: bold;
+margin:0 0 0 0;
+padding-bottom: 120px;
+width: 100%;
+}
+.formreg{
+
+margin:110px 10px 10px 10px;
+padding:10px 10px;
+height:130vh;
+width:50vw;
+left: 100px;
+
+background-color:white;
+
+
+
+}
+.formlog{
+margin:50px 10px 10px 40px;
+padding:10px 10px;
+height:90vh;
+width:50vw;
+left: 100px;
+
+background-color:white;
+
+
+}
+.indeximg{
+	background-color: rgb(142, 141, 141);
+}
+
+#services
+{
+    
+    background-image: url('/static/images/E7E7E5.png');
+    padding: 80px 0;
+    height:100%;
+    width:100%;
+    background-size:cover;
+    filter:blur(80%);
+    font-weight: bolder;
+
+
+}
+.servicediv{
+	margin-top: 10%;
+	color: black;
+	font-size: 30px;
+    font-weight: bolder;
+    
+}
+#about-us
+{
+
+    padding-bottom: 50px;
+    padding-top: 45px;
+    margin:80px 0 0 80px;
+}
+
+#about-us ul li{
+    margin: 20px 0 0 0;
+}
+#about-us ul{
+    margin-left: 20px;
+
+}
+.form-control{
+	width: 100%;
+	color: black;
+}
+.about-us-img{
+float:center;
+height:180px;}
+
+#mainh1{
+position:absolute;
+top:50%;
+font-size:60px;
+font-weight: normal;
+color: rgb(8, 200, 243);
+text-align:center;
+font-family: 'Aclonica', sans-serif;;
+
+}
+#pmain{
+position:absolute;
+top:50%;
+font-size:40px;
+font-weight: normal;
+color: black;
+left:25%;
+}
+
+<!--service-->
+div p{
+margin-top:50%;
+}
+.alert{
+top:30%;
+}
+<!--profile-->
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+.card{
+border:2px solid black;
+}
+
+
+<!--main app-->
+.container {
+    display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+  }
+
+	.containerone {
+    display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+  }
+   .card{
+ border:1px solid black;
+}
+.card-me{
+
+margin:90px 20px 20px 20px;
+float:left;
+}
+.detail{
+margin-top:250px;
+width:70%;
+}
+
+.image-side{
+float:right;
+}
+.form-inline{
+margin-top:150px;
+
+}
+.sell-form{
+margin:100px 15px 0 20px;
+width:50%;
+height:80%;
+padding:100px 10px 10px 100px;
+}
+
+ label{
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                input{
+                    margin-bottom: 0.5rem;
+                    padding: 0px 6px;
+                    width: 30%;
+                    height: 32px;
+                }
+
+               .ubutton{
+                  background: #12273c;
+                  color: white;
+                  font-weight: 600;
+                  border-radius: 0.6em;
+                  border: none;
+                  padding: 10px 40px;
+                  font-size: 20px;
+                  margin-bottom: 20px;
+                  margin-left: 8px;
+                  text-decoration: none;
+                  outline: none !important;
+               }
+			   .ubutton:hover{
+				   color: white;
+				   border: 1px solid white;
+                   background-color: #084787;
+			   }
+               #updatebutton:hover{
+                      font-size: 21px;
+
+               }
+               .media{
+               align-items: center;
+                   padding-top: 180px;
+               }
+               .account-img{
+                      outline: #0060b1;
+               }
+               .media-body{
+                      display: inline-block;
+                      margin: 30px 0px 0px 28px;
+               }
+.active-item{
+	color: black;
+
+}
+.normal-item{
+	color: white;
+}
+/* General styling for the dropdown container */
+.nav-item {
+    position: relative;
+    display: inline-block;
+}
+
+/* Hide the dropdown menu initially */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 12px;
+    list-style-type: none;
+    border-radius: 4px;
+}
+
+/* Styling for dropdown items */
+.dropdown-menu a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown when hovering over the "My Account" link */
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+
+.table th {
+        background-color: #08C8F3; /* Blue color */
+        color: white;
+    }
+
+
+</style>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+  <strong>Message:</strong> {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+{% endif %}
+
+{% if user.is_authenticated %}
+<nav class="basenav">
+<h1>ReBook Connect</h1> <br>
+<ul>
+	<li>
+
+
+			<a class="one" href="{% url 'accounts:logout' %}">Logout</a>
+			<a class="one" href="{% url 'begin:contact' %}"> Contact Us</a>
+
+			<a class="one" href="{% url 'accounts:profile' %}">Profile</a>
+		<a class="one" href="{% url 'main:buy' %}">Buy</a>
+			<a class="one" href="{% url 'main:sell' %}">Sell</a>
+			<a class="active one" href="{% url 'begin:index' %}">Home</a>
+            
+            <li class="nav-item">
+                <a class="one" href="#" id="accountDropdown" style="color: black;">My Account</a>
+                <ul class="dropdown-menu" id="dropdownContent">
+                    <li><a class="dropdown-item" href="{% url 'main:view-my-books' %}">Books Posted</a></li>
+                    <li><a class="dropdown-item" href="{% url 'main:view-wishlist' %}">Wishlist</a></li>
+                    <li><a class="dropdown-item" href="{% url 'main:transaction_history' %}">Transaction History</a></li>
+                </ul>
+            </li>
+            
+            
+
+
+</li>
+</ul>
+
+</nav>
+<br>
+{% else %}
+<nav class="basenav">
+
+<ul>
+	<li>
+		<a class="one" href="{% url 'accounts:signup' %}">Register</a>
+			<a class="one" href="{% url 'accounts:login' %}">Login</a>
+			<a class="one" href= "{% url 'begin:contact' %}"> Contact Us</a>
+			<a class="one" href="{% url 'begin:service' %}">Our Services</a>
+			<a class="one" href="{% url 'begin:about-us' %}">About Us</a>
+			<a class="active one" href=" {% url 'begin:index' %}">Home</a>
+
+</li>
+</ul>
+
+</nav>
+<br>
+{% endif %}
+<br>
+
+{% block body %}
+None
+{% endblock %}
+
+</body>
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <!-- About Us Section -->
+            <div class="col-md-4">
+                <h4>About ReBook Connect</h4>
+                <p>ReBook Connect is a platform to buy and sell books easily. We connect buyers and sellers, making book exchanges simple and secure.</p>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="col-md-4">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="{% url 'begin:index' %}">Home</a></li>
+                    <li><a href="{% url 'begin:about-us' %}">About Us</a></li>
+                    <li><a href="{% url 'begin:contact' %}">Contact Us</a></li>
+                    <li><a href="{% url 'begin:service' %}">Our Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info Section -->
+            <div class="col-md-4">
+                <h4>Contact Us</h4>
+                <p>Email: support@rebookconnect.com</p>
+                <p>Phone: +1 (972) 565-0157</p>
+                <p>Address: 423 UNT, Texas</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <p class="copyright">© 2024 ReBook Connect. All rights reserved.</p>
+                
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Footer CSS Styling -->
+<style>
+.footer {
+    position: relative; /* Change from fixed to relative */
+    background-color: #084787;
+    color: white;
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+
+.footer .copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+.footer h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.footer p, .footer-links li a {
+    color: #cccccc;
+    font-size: 14px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links li a:hover {
+    text-decoration: underline;
+    color: white;
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #cccccc;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer .col-md-4 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .basenav ul li a {
+            font-size: 16px; /* Smaller font size for small screens */
+        }
+        #mainh1{
+            position:absolute;
+            top:30%;
+            font-size:30px;
+            font-weight: normal;
+            color: rgb(8, 200, 243);
+            text-align:center;
+            font-family: 'Aclonica', sans-serif;;
+
+            }
+}
+</style>
+<script>
+    // Toggle the visibility of the dropdown
+    function toggleDropdown() {
+        var dropdown = document.getElementById("dropdownContent");
+        if (dropdown.style.display === "none") {
+            dropdown.style.display = "block";
+        } else {
+            dropdown.style.display = "none";
+        }
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.one')) {
+            var dropdowns = document.getElementsByClassName("dropdown-menu");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.style.display === "block") {
+                    openDropdown.style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+{% extends 'begin/base.html' %}
+
+{% load static %}
+{% block body %}
+
+ <section id="about-us">
+    <div class="container">
+      <h1 class="title text-center">About ReBook Connect</h1> <br> <br> <br>  <br>
+      <div class="row">
+        
+        
+        <div class="col-md-6 about-us">
+          <!--<p class="about-title">Why we're different?</p>-->
+            <img src = "{% static 'images/logo1.png' %}" class="about-us-img"/> <br>
+          
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>          ReBook Connect is a platform to buy and sell books easily. We connect buyers and sellers, making book exchanges simple and secure.
+          </p>
+          <ul>
+            <li> <strong>Our Mission for Sustainability:</strong> At ReBook Connect, we are committed to fostering a sustainable marketplace where second-hand books are easily accessible. By encouraging book reuse, we help reduce waste, conserve valuable resources, and promote an eco-friendly lifestyle among our users.
+            <li><strong>Seamless User Experience:</strong> Our platform is designed to ensure a smooth experience for buyers and sellers. Features like member login, intuitive account management, and streamlined book listing processes make it easy to find and share books within our community.
+            </li>
+            <li><strong>Building a Book-Loving Community: </strong>ReBook Connect creates meaningful connections by bringing readers, students, and sellers together in one place. By providing an affordable option for acquiring books, we support a community that values knowledge sharing and sustainable living.
+            </li>
+            <li> <strong>Empowering Sellers to Share Knowledge: </strong>Our system enables sellers to easily list, update, or remove books. This flexibility ensures users have access to accurate, current listings, helping sellers find new homes for their books while making reading affordable for all.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

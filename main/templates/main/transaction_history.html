@@ -1,0 +1,128 @@
+{% extends 'begin/base.html' %}
+{% block body %}
+<style>
+    /* Modal styling */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+    .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        width: 50%;
+        border-radius: 5px;
+    }
+    .close-btn {
+        float: right;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+</style>
+
+<div style="margin-left: 5%;" class="detail">
+    <h1>Transaction History</h1>
+
+    <h2>Books I've Bought</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>Seller</th>
+                <th>Date of Purchase</th>
+                <th>Review</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in bought_books %}
+                <tr>
+                    
+                    <td><a href="{% url 'main:detail' transaction.book.id %}">{{ transaction.book.book_name }}</a></td>
+                    <td>{{ transaction.book.seller.username }}</td>
+                    <td>{{ transaction.date }}</td>
+                    <td>
+                        {% if transaction.review %}
+                            <span>{{transaction.review}} </span>
+                        {% else %}
+                            <button onclick="openModal({{ transaction.id }})" class="btn btn-primary">Leave Review</button>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">You haven't bought any books yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Books I've Sold</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Book Name</th>
+                <th>Buyer</th>
+                <th>Date of Sale</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in sold_books %}
+                <tr>
+                    <td><a href="{% url 'main:detail' transaction.book.id %}">{{ transaction.book.book_name }}</a></td>
+                    <td>{{ transaction.buyer.username }}</td>
+                    <td>{{ transaction.date }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">You haven't sold any books yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Review Modal -->
+<div id="reviewModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>Leave a Review</h2>
+        <form id="reviewForm" method="post" action="{% url 'main:add_review' %}">
+            {% csrf_token %}
+            <input type="hidden" name="transaction_id" id="transactionIdField">
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <input type="number" name="rating" id="rating" min="1" max="5" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea name="comment" id="comment" class="form-control" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success">Submit Review</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openModal(transactionId) {
+        document.getElementById('reviewModal').style.display = 'block';
+        document.getElementById('transactionIdField').value = transactionId;
+    }
+
+    function closeModal() {
+        document.getElementById('reviewModal').style.display = 'none';
+    }
+
+    // Close modal if user clicks outside of it
+    window.onclick = function(event) {
+        var modal = document.getElementById('reviewModal');
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

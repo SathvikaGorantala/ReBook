@@ -1,0 +1,28 @@
+{% extends 'begin/base.html' %}
+
+{% block body %}
+<div class="container">
+<div class="wishlist-section" style="margin-left: 5%;">
+    <h1>{{ title }}</h1>
+    <br> <br> <br><br> <br> <br> <br> <br> <br>
+    
+    {% if books %}
+        <ul>
+            {% for item in books %} 
+                <li>
+                    <div class="wishlist-item">
+                        <img src="/media/{{ item.book.book_image }}" width="100px" height="100px">
+                        <strong>{{ item.book.book_name }}</strong> - {{ item.book.edition }} Edition<br>
+                        <span>Price: {{ item.book.price }}</span><br> 
+                        <span>Seller: {{ item.book.seller }}</span><br>
+                        <a href="{% url 'main:detail' item.book.id %}">View Details</a>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have no items in your wishlist.</p>
+    {% endif %}
+</div>
+</div>
+{% endblock %}
